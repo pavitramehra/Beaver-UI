@@ -4,8 +4,8 @@ import time
 import numpy as np
 
 # Set up page
-st.set_page_config(page_title="Data Pipeline Simulator", layout="wide")
-st.title("🧪 End-to-End Data Pipeline Simulator")
+st.set_page_config(page_title="Beaver: Data Cleaning using LLM's", layout="wide")
+st.title("Beaver: Data Cleaning using LLM's")
 
 # Define steps
 step_titles = [
@@ -40,7 +40,7 @@ st.session_state.step_index = selected
 
 # Get current step label
 step = step_titles[st.session_state.step_index]
-st.subheader(f"📌 {step}")
+st.subheader(f"{step}")
 
 
 
@@ -53,7 +53,7 @@ st.subheader(f"📌 {step}")
 
 # STEP 1: Upload
 if step == "1. Upload Data Lake & Query Table":
-    st.subheader("📁 Upload Data Lake Files")
+    st.subheader("Upload Data Lake Files")
     lake_name = st.text_input("Name your data lake")
     files = st.file_uploader("Upload CSV files for the data lake", type="csv", accept_multiple_files=True)
 
@@ -100,7 +100,7 @@ elif step == "2. Generate FD Outputs":
 
 # STEP 3: Entropy
 elif step == "3. Calculate Entropy":
-    st.subheader("📉 Entropy Calculation")
+    st.subheader("Entropy Calculation")
 
     if st.button("🔍 Run Entropy Calculation"):
         st.success("Entropy scores computed for each FD file (simulated).")
@@ -229,7 +229,7 @@ elif step == "6. Confidence Calculation":
         st.dataframe(df, use_container_width=True)
 
 elif step == "7. QA Generation":
-    st.subheader("🤖 QA Pair Generation (from Confidence Rules)")
+    st.subheader("QA Pair Generation (from Confidence Rules)")
 
     qa_pairs = pd.DataFrame({
         "Question": [
@@ -248,12 +248,12 @@ elif step == "7. QA Generation":
     })
 
     st.dataframe(qa_pairs, use_container_width=True)
-    st.download_button("📥 Download QA Pairs", qa_pairs.to_csv(index=False), file_name="qa_pairs.csv")
+    st.download_button("Download QA Pairs", qa_pairs.to_csv(index=False), file_name="qa_pairs.csv")
 
 # STEP 7: Model Training
 elif step == "8. Train Model":
     st.subheader("🧠 Train Correction Model")
-    if st.button("🤖 Start Training"):
+    if st.button("Start Training"):
         with st.spinner("Training model... please wait"):
             import time
             time.sleep(2)  # Simulate training
@@ -298,7 +298,6 @@ elif step == "9. Mark Query Table Errors":
 
 # STEP 9: View Corrected File (Green Highlights Only)
 elif step == "10. View Corrected File":
-    st.subheader("✅ Corrected File with Highlights (Green = Fixed)")
 
     import pandas as pd
     import io
