@@ -40,7 +40,9 @@ with tab1:
     ]
     step = st.selectbox("Select Offline Step", steps, index=st.session_state.offline_step)
 
-    st.info(
+    
+    if step == "Upload Data Lake":
+        st.info(
     """
     💾 **What's happening in this step?**
 
@@ -48,7 +50,6 @@ with tab1:
     These files will be used for downstream tasks like FD generation, entropy calculation, and QA training.
     """
 )
-    if step == "Upload Data Lake":
         lake_name = st.text_input("Name your data lake")
         files = st.file_uploader("Upload CSV files for the data lake", type="csv", accept_multiple_files=True)
         if files:
