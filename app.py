@@ -40,6 +40,14 @@ with tab1:
     ]
     step = st.selectbox("Select Offline Step", steps, index=st.session_state.offline_step)
 
+    st.info(
+    """
+    💾 **What's happening in this step?**
+
+    Upload one or more CSV files to create your **data lake**.  
+    These files will be used for downstream tasks like FD generation, entropy calculation, and QA training.
+    """
+)
     if step == "Upload Data Lake":
         lake_name = st.text_input("Name your data lake")
         files = st.file_uploader("Upload CSV files for the data lake", type="csv", accept_multiple_files=True)
@@ -475,7 +483,7 @@ with tab2:
         )
 
         # Model selection dropdown
-        selected_model = st.selectbox("Select Cleaning Model", ["Beaver (T5)", "LLM Baseline", "Gold Rules", "Random"])
+        selected_model = st.selectbox("Select Cleaning Model", ["Beaver", "Cocoon", "RetClean", "Jellyfish"])
 
         # Query file selector (simulated)
         query_file_options = ["query_dirty.csv"]
