@@ -4,8 +4,8 @@ import time
 import numpy as np
 
 # Set up page
-st.set_page_config(page_title="Beaver: Data Cleaning using Large Language Model", layout="wide")
-st.title("Beaver: Data Cleaning using using Large Language Model")
+st.set_page_config(page_title="Beaver: Data Cleaning using LLM", layout="wide")
+st.title("Beaver: Data Cleaning using using LLM")
 
 # Define steps
 step_titles = [
