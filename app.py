@@ -53,7 +53,7 @@ st.subheader(f"{step}")
 
 # STEP 1: Upload
 if step == "1. Upload Data Lake & Query Table":
-    st.subheader("Upload Data Lake Files")
+    # st.subheader("Upload Data Lake Files")
     lake_name = st.text_input("Name your data lake")
     files = st.file_uploader("Upload CSV files for the data lake", type="csv", accept_multiple_files=True)
 
@@ -100,7 +100,7 @@ elif step == "2. Generate FD Outputs":
 
 # STEP 3: Entropy
 elif step == "3. Calculate Entropy":
-    st.subheader("Entropy Calculation")
+    # st.subheader("Entropy Calculation")
 
     if st.button("🔍 Run Entropy Calculation"):
         st.success("Entropy scores computed for each FD file (simulated).")
@@ -134,7 +134,7 @@ elif step == "3. Calculate Entropy":
 
 # STEP 4: Join Prioritization
 elif step == "4. Join Prioritization":
-    st.subheader("🔗 Join Prioritization")
+    # st.subheader("🔗 Join Prioritization")
 
     if st.button("📎 Prioritize Joins"):
         join_df = pd.DataFrame({
@@ -151,7 +151,7 @@ elif step == "4. Join Prioritization":
 elif step == "5. Low Entropy Grouping":
     import pandas as pd
 
-    st.subheader("📊 Low Entropy Groupings Table")
+    # st.subheader("📊 Low Entropy Groupings Table")
     st.markdown("Below are simulated low entropy LHS combinations for different target attributes:")
 
     low_entropy_groups = {
@@ -188,7 +188,7 @@ elif step == "5. Low Entropy Grouping":
 
 
 elif step == "6. Confidence Calculation":
-    st.subheader("📈 High-Confidence Association Rules")
+    # st.subheader("📈 High-Confidence Association Rules")
 
     confidence_data = {
         "architect_gender": pd.DataFrame({
@@ -229,7 +229,7 @@ elif step == "6. Confidence Calculation":
         st.dataframe(df, use_container_width=True)
 
 elif step == "7. QA Generation":
-    st.subheader("QA Pair Generation (from Confidence Rules)")
+    # st.subheader("QA Pair Generation (from Confidence Rules)")
 
     qa_pairs = pd.DataFrame({
         "Question": [
@@ -252,7 +252,7 @@ elif step == "7. QA Generation":
 
 # STEP 7: Model Training
 elif step == "8. Train Model":
-    st.subheader("🧠 Train Correction Model")
+    # st.subheader("🧠 Train Correction Model")
     if st.button("Start Training"):
         with st.spinner("Training model... please wait"):
             import time
@@ -262,7 +262,7 @@ elif step == "8. Train Model":
 
 # STEP 8: Mark Query Table Errors
 elif step == "9. Mark Query Table Errors":
-    st.subheader("🟥 Mark Errors in Query Table")
+    # st.subheader("🟥 Mark Errors in Query Table")
 
     if st.session_state.query_table is None:
         st.warning("Please upload a query table in Step 1.")
