@@ -10,7 +10,7 @@ import io
 st.set_page_config(page_title="Beaver: Data Cleaning using LLM", layout="wide")
 col1, col2 = st.columns([0.05, 0.98])
 with col1:
-    st.image("assets/beaver.png", width=70)
+    st.image("beaver.png", width=70)
 with col2:
     st.markdown("## **Beaver: End-to-End Data Cleaning using LLMs**")
 # Shared states
