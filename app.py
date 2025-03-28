@@ -527,23 +527,50 @@ with tab2:
             metrics = ["F1 Score", "Precision", "Recall"]
             models = ["Beaver", "Coocon", "RetClean"]
             scores = {
-                "F1 Score": [0.91, 0.85, 0.78],
-                "Precision": [0.93, 0.87, 0.80],
-                "Recall": [0.90, 0.84, 0.76]
+                "F1 Score": [0.91, 0.45, 0.58],
+                "Precision": [0.93, 0.57, 0.80],
+                "Recall": [0.90, 0.44, 0.46]
             }
             import plotly.graph_objects as go
 
-            for metric in metrics:
-                fig = go.Figure(
-                    data=[go.Bar(x=models, y=scores[metric], text=scores[metric], textposition='auto')],
-                )
-                fig.update_layout(
-                    title=f"{metric} Comparison",
-                    width=50,  # control width
-                    height=300,  # control height
-                    margin=dict(l=10, r=10, t=40, b=10),
-                )
-                st.plotly_chart(fig)
+            # for metric in metrics:
+            #     fig = go.Figure(
+            #         data=[go.Bar(x=models, y=scores[metric], text=scores[metric], textposition='auto')],
+            #     )
+            #     fig.update_layout(
+            #         title=f"{metric} Comparison",
+            #         width=50,  # control width
+            #         height=300,  # control height
+            #         margin=dict(l=10, r=10, t=40, b=10),
+            #     )
+            #     st.plotly_chart(fig)
+
+            # for metric in metrics:
+            #     fig = go.Figure(
+            #         data=[go.Bar(x=models, y=scores[metric], text=scores[metric], textposition='auto')],
+            #     )
+            #     fig.update_layout(
+            #         title=f"{metric} Comparison",
+            #         width=50,  # Set desired width here
+            #         height=300,
+            #         margin=dict(l=10, r=10, t=40, b=10),
+            #     )
+            #     st.plotly_chart(fig)  # no use_container_width
+
+            col1, _ = st.columns([2, 3])  # restrict chart to 2/5th of width
+            with col1:
+                for metric in metrics:
+                    fig = go.Figure(
+                        data=[go.Bar(x=models, y=scores[metric], text=scores[metric], textposition='auto')],
+                    )
+                    fig.update_layout(
+                        title=f"{metric} Comparison",
+                        height=400,
+                        margin=dict(l=10, r=10, t=40, b=10),
+                    )
+                    st.plotly_chart(fig, use_container_width=True)
+
+
 
              
         # # Select file from previously uploaded files
